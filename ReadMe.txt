@@ -78,3 +78,31 @@ Q. Why to use Next.js?
 
 # when we run the command 'npm run dev' in terminal --> the execution is transferred to 'layout.tsx' where root layout component is rendered ---> when we navigate to localhost:3000 (where Next.js app runs) the children prop will always refers to the component defined in 'page.tsx' in app folder that component is the home component which is then renderd in the browser.
 
+## Lec 4 - Before We Start (2:05)
+
+# React Server Component (RSC) - React Server Components is a new architecture introduced by the React team in version 18 which was quickly embraced by Next.js
+
+# The architecture introduces a new way of creating React components, spliting them into two types :
+
+a). Server components
+b). Client components
+
+# Server Components :- 
+- In Next.js, all components are Server components by default
+- They have the ability to run tasks like reading files or fetching data from database,
+- However, they don't have ability to use hooks or handle user interactions.
+
+# Clinet components :-
+- To create a Client component, it's necessary to add "use client" at the top of the component file,
+- Client components can't perform tasks like reading files, but they have the ability to use hooks and manage interactions,
+
+# Note - Client components are the traditional React's components we are familiar with and have used in all prior versions of React.
+
+# React Server Component and Routing :-
+- We shall explore examples where we use server components that await certain actions to finalize before rendering content on the screen,
+
+- We'll also see examples where we use client components to leverage hooks from the routing module
+
+## Lec 5 - Routing (7:45)
+
+# 
