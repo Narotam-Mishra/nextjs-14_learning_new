@@ -105,4 +105,32 @@ b). Client components
 
 ## Lec 5 - Routing (7:45)
 
+# Routing feture offered by Next.js :-
+
+a). Next.js has a file-system based routing mechanism where URL paths that users can access in the browser are defined by files and folders in your codebase,
+
+# Routing Conventions :-
+- All routes must be placed inside the app folder,
+- Every file that corresponds to a route must be named 'page.js' or 'page.tsx',
+- Every folder corresponds to a path segment in the browser URL
+
+# When above conventions are followed then the file automatically becomes available as route.
+
+# File Based Routing (scenarios)
+
+# Scenario 1 :- let us add a route that needs to be rendered when a user visits a website, let say that page of website is home page. The 'page.tsx' file within the app folder maps to the root of your domain.
+
+# Scenario 2 :- we need two routes, one route to render when the user visits the 'about' page and another to render when the user visits the 'profile' page.
+
+# Next.js automatically creates and populates 'layout.tsx' file when we load the root route 
+
+# Routes associated with a file based on the containing folders name within the app folder 
+
+# Note - By default all routes must be placed within a folder called app which will exist within the source folder
+
+Q. What happens if we enter a URL that can not map to a file in the app?
+# then Next.js automatically show 404 page could not found
+
+## Lec 6 - Nested Routes (3:50)
+
 # 
