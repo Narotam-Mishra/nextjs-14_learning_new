@@ -133,4 +133,15 @@ Q. What happens if we enter a URL that can not map to a file in the app?
 
 ## Lec 6 - Nested Routes (3:50)
 
+# We can created nested routes as well within Next.js project
+
+# Scenario 3 - let us add two nested routes
+
+Q. How can we achieve nested routing in Next.js project?
+# Next.js simplifies nested routes process by allowing us to nest folders inside the app folder
+
+# Note - creating a nested folder structure files will automatically be routed in the same way within the URL.
+
+## Lec 7 - Dynamic Routes (7:54)
+
 # 
