@@ -156,4 +156,12 @@ Q. How can we achieve nested routing in Next.js project?
 
 # Dynamic routes are useful when implementing the list detailed pattern in any UI application.
 
+## Lec 8 - Nested Dynamic Routes (4:09)
 
+# when we build complex application it is common to encounter scenarios where multiple dynamic routes segments are required.
+
+# Nested Dymaic Routes Scenario 5 :- As a user if we navigate to '/products/1' should see the product with id 1 and if we navigate to '/products/1/reviews/1' we can see the first review written about that product.
+
+# when we deal with mutiple path segments the solution lies in a nested folder structure.
+
+# It is possible to create nested dynamic routes by having dynamic segments in the folder names. 
