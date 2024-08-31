@@ -72,7 +72,7 @@ Q. Why to use Next.js?
 
 # layout.tsx - this is a UI that can be shared across different pages in the Next.js app,
 
-# page.tsx - it is unique UI which we see on visiting browser when application is served. This file replaces the children props in 'layout.tsx' file to from complete UI which we see on the browser.
+# page.tsx - it is unique UI which we see on visiting browser when application is served. This file replaces the children props in 'layout.tsx' file to form complete UI which we see on the browser.
 
 ## Flow of control when we run Next.js app :-
 
@@ -144,4 +144,16 @@ Q. How can we achieve nested routing in Next.js project?
 
 ## Lec 7 - Dynamic Routes (7:54)
 
-# 
+# Dynamic Routes Scenario 4 :- In this scenario, we will be building a product listing and Details page. When a user navigates to '/products'. We should display a list of three products however if the user navigates to '/products/id' then we need to display details about the specific product. 
+
+# If we have 100 t0 1000 of products then creating a separate folder for each product is not a viable solution. So, the correct approach is to use the Dynamic Route segments.
+
+# In our example product id 1,2, 3 and so on should be dynamic value that maps to specific file in the products folder. In Next.js we can enclose a folder name with brackets to create a dynamic route.
+
+# Next.js treats folder name which are in square brackets as a dynamic segment enabling us to create Dynamic routes.
+
+# Note - Every page in the app router receives route parameters as a prop (prop name is 'params'). params object contains the route paramters as key-value pairs. In case of 'productId' route we have a single parameter which is the 'productId'.
+
+# Dynamic routes are useful when implementing the list detailed pattern in any UI application.
+
+
