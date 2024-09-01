@@ -165,3 +165,40 @@ Q. How can we achieve nested routing in Next.js project?
 # when we deal with mutiple path segments the solution lies in a nested folder structure.
 
 # It is possible to create nested dynamic routes by having dynamic segments in the folder names. 
+
+
+## Lec 9 - Catch all Segments (8:04)
+
+# Synatx --> [...routeName]
+
+# Catch-all Segments Scenario 6 :- let us assume we are building a documentation site for a project that contains several features and each feature consists of multiple concepts that need to be explored. There will be Sidenav and it have various features such as expand sidenav to display. Our goal is to have a unique route for each concept under a given feature. Example - a). localhost:3000/docs/feature1/concept1
+b). localhost:3000/docs/feature2/concept2
+c). localhost:3000/docs/feature3/concept3,
+
+# 20 features * 20 concepts = 400
+# 20 features * 1 [conceptId] = 20
+# 1 [featureId] * 1 [conceptId] = 1
+
+# let us consider that we may have 20 features and each feature may have 20 concepts we end up with a massive 400 routes for the Next.js application and since Next.js have a file system based routing mechanishm, 400 routes correspond to 400 files in Next.js project. Here we can make use of dynamic routing by replacing the concept files with dynamic route folders using conceptId and thus we can reduce the number of files to 20 and it si similar for feature folders as well.
+
+# For each additional path in URL we will require another level of nesting in our app folder.
+
+# If every page in our documentation website shares the same layout wouldn't it be great if we could define one file that could handle all the route segments in the URL, we can achieve such behaviour in Next.js using catch-all segments.
+
+# the main feature of catch-all segments is that it will match any URL that contains the folder name where we want to define such matching behaviour (in our example it is 'docs')
+
+# catch-all segments routes captures all URL segments and maps to them to the single file (i.e, page.tsx). This is particulary useful for documentation where we want different segments for better organization and SEO but the layout of the document remains same. This features is only useful if we want to access different segments in the URL.
+
+# slug - slug is a common convention that we use when referring to URLs.
+
+# Note - UI logic can be customized according to our needs depending on how we want to handle the different route segments ideally we would use slug array to fetch corresponding data.
+
+# Optional catch-all routes - where we need to wrap the folder name with double square brackets i.e, [[...slug]]
+
+## Lec 10 - Not Found Page (4:24)
+
+# define custom 404 page using new app router
+
+# By default in any Next.js application when we navigate to a route that is not defined in app folder, Next.js renders a deafult 404 page not found.
+
+# To create a custom not found page, we can simply create a file named 'not-found.tsx/js'
