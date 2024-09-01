@@ -202,3 +202,9 @@ c). localhost:3000/docs/feature3/concept3,
 # By default in any Next.js application when we navigate to a route that is not defined in app folder, Next.js renders a deafult 404 page not found.
 
 # To create a custom not found page, we can simply create a file named 'not-found.tsx/js'
+
+# In most production grade applications it is desirable to display a custom 404 page with branding and custom theme applied.
+
+# If we want to programmatically render custom not-found page based on a certain condition then we can use notFound() function from Next.js 
+
+# not-found pages can also be defined at the folder level 
