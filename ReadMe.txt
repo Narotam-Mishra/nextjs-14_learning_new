@@ -208,3 +208,15 @@ c). localhost:3000/docs/feature3/concept3,
 # If we want to programmatically render custom not-found page based on a certain condition then we can use notFound() function from Next.js 
 
 # not-found pages can also be defined at the folder level 
+
+## Lec 11 - File Colocation (3:49)
+
+# File colocation in Next.js is a practice where related files, such as components, styles, and tests, are stored together in the same directory. This approach keeps all files relevant to a particular feature or component close to each other, making the project more organized and easier to maintain. It contrasts with separating files by type, where all components, styles, and tests are stored in separate directories.
+
+# Next.js uses file system based routing where each folder represents a route segment mapped to a corresponding segment in the URL path however a route isn't publicly accessible until page.js/tsx file is added to the respective route segment.
+
+# Even when route becomes publicly accessible only the content returned by 'page.tsx' is sent to the client. The content returned must be a default exported react component.
+
+# project files can be safely collocated inside route segments. If we want to render line-chart component or bar-chart component simply included in the jsx returned from the default exported component which is dashboard in our example.
+
+# Although we can collocate our project files within the app directory but it is not mandatory, if we prefer we can keep them outside the app directory within 'src' folder.
