@@ -220,3 +220,19 @@ c). localhost:3000/docs/feature3/concept3,
 # project files can be safely collocated inside route segments. If we want to render line-chart component or bar-chart component simply included in the jsx returned from the default exported component which is dashboard in our example.
 
 # Although we can collocate our project files within the app directory but it is not mandatory, if we prefer we can keep them outside the app directory within 'src' folder.
+
+## Lec 12 - Private Folders (2:51)
+
+# private folders - A feature provided by Next.js to  help you effectively organise your project.
+
+# A private folder indicates that it is a private implementation detail and should not be considered by the routing system which means the folder and all its sub-folders are excluded from routing.
+
+# In order to create a private folder we prefix the folder name with an underscore (_).
+
+# Use of private folders
+1). For separating UI logic from routing logic,
+
+2). For consistently organizing internal files across a project.
+
+3). for sorting and grouping files in code editors.
+
