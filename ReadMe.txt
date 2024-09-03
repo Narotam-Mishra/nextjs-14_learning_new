@@ -250,3 +250,22 @@ c). localhost:3000/docs/feature3/concept3,
 # Adding register, login & forgot-password to auth folder might be acceptable for authentication routes but it may not be ideal for other groups such as marketing and analytics, so to solve this problem we can use route groups to exclude it from the routes URL path.
 
 # To create route group simply wrap the folder's name in parenthesis (). So creating route groups inform next.js that auth folder should be treated as a route group and its name will be omitted from the URL path.
+
+## Lec 14 - Layouts (5:53)
+
+# A page is UI that is unique to a route.
+
+# A layout is UI that is shared between multiple pages in the app. When building apps it is common to have a consistent layout across different pages such as Header, Content , Footer etc.
+
+Q. How to create Layouts?
+# We can define a layout by default exporting a React component from a layout.js or layout.tsx file. That component should accept a children prop that will be populated with a child page during rendering.
+
+# we will not create layout from scratch as NExt.js already provides one out of the box. Inside app folder we can find a file named 'layout.tsx'. Similar to page.tsx, 'layout.tsx' follows a special file naming convention in app router. The 'layout.tsx' file in app folder serves as the topmost layout and it is referred to as root layout. The root layout is a mandatory layout for every Next.js application. Next.js automatically generates this file even if we delete it.
+
+# Every layout component should accept a children prop that will be replaced by a child component during rendering. In our example, 'page.tsx' from root app directory will replace the 'children' prop of 'layout.tsx' file when layout is rendered on the browser.
+
+# By defining a single 'layout.tsx' in the app directory, we can create a consistent layout for every page in Next.js app.
+
+# we have freedom to add any markup styles and behaviour. The only requirement is that the component renders the childre. The only requirement is that the component reders the children prop for 'page.tsx'.
+
+#
