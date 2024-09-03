@@ -236,3 +236,17 @@ c). localhost:3000/docs/feature3/concept3,
 
 3). for sorting and grouping files in code editors.
 
+## Lec 13 - Route Groups (5:35)
+
+# Another Next.js features that help us organize our projects namely route groups.
+
+# This feature allows us to logically group our routes and project files without affecting the path structure.
+
+# Let's implement authentication routes 
+- Register
+- Login
+- Forgot password
+
+# Adding register, login & forgot-password to auth folder might be acceptable for authentication routes but it may not be ideal for other groups such as marketing and analytics, so to solve this problem we can use route groups to exclude it from the routes URL path.
+
+# To create route group simply wrap the folder's name in parenthesis (). So creating route groups inform next.js that auth folder should be treated as a route group and its name will be omitted from the URL path.
