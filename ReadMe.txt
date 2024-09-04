@@ -260,7 +260,7 @@ c). localhost:3000/docs/feature3/concept3,
 Q. How to create Layouts?
 # We can define a layout by default exporting a React component from a layout.js or layout.tsx file. That component should accept a children prop that will be populated with a child page during rendering.
 
-# we will not create layout from scratch as NExt.js already provides one out of the box. Inside app folder we can find a file named 'layout.tsx'. Similar to page.tsx, 'layout.tsx' follows a special file naming convention in app router. The 'layout.tsx' file in app folder serves as the topmost layout and it is referred to as root layout. The root layout is a mandatory layout for every Next.js application. Next.js automatically generates this file even if we delete it.
+# we will not create layout from scratch as Next.js already provides one out of the box. Inside app folder we can find a file named 'layout.tsx'. Similar to page.tsx, 'layout.tsx' follows a special file naming convention in app router. The 'layout.tsx' file in app folder serves as the topmost layout and it is referred to as root layout. The root layout is a mandatory layout for every Next.js application. Next.js automatically generates this file even if we delete it.
 
 # Every layout component should accept a children prop that will be replaced by a child component during rendering. In our example, 'page.tsx' from root app directory will replace the 'children' prop of 'layout.tsx' file when layout is rendered on the browser.
 
@@ -268,4 +268,17 @@ Q. How to create Layouts?
 
 # we have freedom to add any markup styles and behaviour. The only requirement is that the component renders the childre. The only requirement is that the component reders the children prop for 'page.tsx'.
 
-#
+## Lec 15 - Nested Layouts (4:02)
+
+# Layout are UI components shared between multiple pages in an application. Each app has a mandatory root layout which is the topmost layout. Layouts can be nested.
+
+# If we want to create a layout for specific route (folder), we can create a 'layout.tsx'
+
+Q. How rendering process works in case of nested layouts?
+# rendering process works as follows :-
+1). The root layout within the app folder is renderd first which includes the children prop representing the productId folder. The productId folder has its own layout. This replaces the children prop in the root layout.
+
+# This approach of nested layouts allows us to create layouts that apply only to only specific areas of our application.
+
+# Next.js app router supports nested layouts enabling a lot of flexibility and customization.
+
