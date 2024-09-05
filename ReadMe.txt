@@ -266,7 +266,7 @@ Q. How to create Layouts?
 
 # By defining a single 'layout.tsx' in the app directory, we can create a consistent layout for every page in Next.js app.
 
-# we have freedom to add any markup styles and behaviour. The only requirement is that the component renders the childre. The only requirement is that the component reders the children prop for 'page.tsx'.
+# we have freedom to add any markup styles and behaviour. The only requirement is that the component reders the children prop for 'page.tsx'.
 
 ## Lec 15 - Nested Layouts (4:02)
 
@@ -282,3 +282,11 @@ Q. How rendering process works in case of nested layouts?
 
 # Next.js app router supports nested layouts enabling a lot of flexibility and customization.
 
+
+## Lec 16 - Route Group Layout (2:53)
+
+# The primary usecase of Route Group is to organise our project in a manner that doesn't affect the URL.
+
+# To selectively apply a layout to certain segments while leaving others unchanged.
+
+# Route Group Layout is particularly useful in large projects with numerous layouts and Route segments ensuring a tidy and organized project structure.
