@@ -290,3 +290,38 @@ Q. How rendering process works in case of nested layouts?
 # To selectively apply a layout to certain segments while leaving others unchanged.
 
 # Route Group Layout is particularly useful in large projects with numerous layouts and Route segments ensuring a tidy and organized project structure.
+
+## Lec 17 - Routing Metadata (8:12)
+
+# When we build web application ensuring proper search engine optimization (SEO) is crucial for increasing visibility and attracting users.So, Next.js introduced Metadata API which allows us to define metadata for each page.
+
+# Metadata ensures accurate and relevant information is displayed when pages are shared or indexed.
+
+# we will leverage the metadata API to enhance routing metadata.
+
+# With the new app router there are two methods to configure metadata in 'layout.tsx' or 'page.tsx' file .
+
+# Configuring Metadata
+1). Export a static metadata object,
+2). Export a dynamic generateMetadata function,
+
+# Metadata rules :- 
+- Both 'layout.tsx' and 'page.tsx' files can export metadata. If defined in a layout, it applies to all pages in the layout, but if defined in a page, it applies only to that page.
+
+- Metadata is read in order, from the root level down to the final page level,
+
+- When there's metadata in multiple places for the same route, they get combined but page metadata will replace layout metadata if they have the same properties.
+
+# Both 'layout.tsx' and 'page.tsx' can have metadata but page metadata takes precedence if both are present,
+
+# Rule for static metadata object :- when multiple segments in a route export the metdata object the properties are merged to form the final metadata object during merging the deepest segment takes priority,
+
+# Rule for dynamic metadata :- Dynamic metadata depends on dynamic information such as the current route parameters external data or metadata in parent segments. To define dynamic metadata we export a generate metadata function that returns a metdata object from layout or page.tsx file.
+
+# A common use case for dynamic metadata is a dynamic route like productId.
+
+# Note - 'generateMetadata' can also be defined as a async function, we can add the async keyword and within the function body await a fetch request.
+
+# We can use the product ID parameter to retrieve information about the product and set the information as metadata for the page.
+
+# Note - We can not export both the metadata object and 'generateMetadata' function from the same route segment
