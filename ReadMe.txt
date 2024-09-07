@@ -325,3 +325,19 @@ Q. How rendering process works in case of nested layouts?
 # We can use the product ID parameter to retrieve information about the product and set the information as metadata for the page.
 
 # Note - We can not export both the metadata object and 'generateMetadata' function from the same route segment
+
+## Lec 18 - title Metadata (4:19)
+
+# The 'title' field's primary purpose is to define the document title,
+
+# It can be either a string or an object.
+
+# The most straightforward way to set the title attribute is by using a string value.
+
+# FOr more flexibility we can define the title field using an object. In the root layout import and use meta data type for better intellisense.
+
+# 'title.default' property is useful when we want to provide a fallback title for child route segments they don't explicitly specify a title.
+
+# "template" - to create dynamic titles by adding a prefix or a suffix we can use 'title.template' property. This property applies to child route segments and not the segments in which it is defined.
+
+# "absolute" - if we want to provide a title that completely ignores 'title.template' set in the parent segments we can use "title.absolute" property.
