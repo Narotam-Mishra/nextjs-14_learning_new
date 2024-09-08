@@ -334,10 +334,33 @@ Q. How rendering process works in case of nested layouts?
 
 # The most straightforward way to set the title attribute is by using a string value.
 
-# FOr more flexibility we can define the title field using an object. In the root layout import and use meta data type for better intellisense.
+# For more flexibility we can define the title field using an object. In the root layout import and use meta data type for better intellisense.
 
 # 'title.default' property is useful when we want to provide a fallback title for child route segments they don't explicitly specify a title.
 
 # "template" - to create dynamic titles by adding a prefix or a suffix we can use 'title.template' property. This property applies to child route segments and not the segments in which it is defined.
 
 # "absolute" - if we want to provide a title that completely ignores 'title.template' set in the parent segments we can use "title.absolute" property.
+
+## Lec 19 - Link Component Navigation (7:23)
+
+# Navigation 
+
+# We manually entered the URLs in the browser's address bar to navigate to the different routes,
+
+# Users rely on UI elements like links to navigate 
+- clicking on them or
+- through programmatic navigation after completing an action,
+
+# UI Navigation
+
+# Navigate from Home --> Blog --> Blog page,
+
+# To enable client side navigation Next.js provides us with the 'Link' component,
+
+# The '<Link>' component is a React component that extends the HTML '<a>' element and it's the primary way to navigate between routes in Next.js. To use it, we need to import it from "next/link".
+
+# Note - 'replace' prop on <Link> component replaces the current history state instead of adding a new URL to this stack.
+
+# Link component in Next.js allows us to navigate between routes using UI elements.
+
