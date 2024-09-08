@@ -364,3 +364,11 @@ Q. How rendering process works in case of nested layouts?
 
 # Link component in Next.js allows us to navigate between routes using UI elements.
 
+## Lec 20 - Active Links (5:27)
+
+# styling active links
+
+# To determine if a link is active Next.js provides the 'usePathname' hook,
+
+# 'pathname' constant represents the path in the URL. For example - for register route it represents '/register' and for login it represents '/login'.
+
