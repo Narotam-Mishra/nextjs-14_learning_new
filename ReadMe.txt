@@ -372,3 +372,10 @@ Q. How rendering process works in case of nested layouts?
 
 # 'pathname' constant represents the path in the URL. For example - for register route it represents '/register' and for login it represents '/login'.
 
+## Lec 21 - Navigating Programmatically (4:56)
+
+# There are situations where we need to programmatically navigate to specific route. For example - suppose we are placing order on Amazon and upon successful form submission, we are redirected to the order confirmation page.
+
+# When the user clicks the 'place order' button on the prder product page, we will navigate them to the Home page.
+
+# Note - If we want to replace the history instead of pushing the route onto stack we can use router.replace() method. We can also use router.back() to navigate back and router.forward() to navigate to forward page.
