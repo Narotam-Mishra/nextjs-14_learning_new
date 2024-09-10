@@ -379,3 +379,17 @@ Q. How rendering process works in case of nested layouts?
 # When the user clicks the 'place order' button on the prder product page, we will navigate them to the Home page.
 
 # Note - If we want to replace the history instead of pushing the route onto stack we can use router.replace() method. We can also use router.back() to navigate back and router.forward() to navigate to forward page.
+
+## Lec 22 - Templates (4:46)
+
+# Another special file Next.js provide as part of the app router that is 'template' file.
+
+# In auth route group '(auth)' which is having layout file to navigate across three different links 'login', 'register' & 'forgot-password'. We will also add input element to take user input.
+
+# When we navigate from register route to login / forgot-password route the input element state is preserved, this is because layouts only mount the part representing the content of the newly loaded page but keep all the common elements untouched. Layouts don't remount shared components resulting in the better performance. Majority of the time this is the behavoiur we need. 
+
+# In some scenario where we need the layouts to create a new instance for each of their children on their navigation. For example - enter/exit animation for pages or running a side-effect using the 'useEffect' hook when the route changes for such situations we can use the template file as replacement of the layout file.
+
+# Templates :- Templates are similar to layouts in that they wrap each child layout or page. But with templates, when a user navigates between routes that share a template, a new instance of the component is mounted, DOM elements are recreated, state is not preserved and effects are re-synchronized.
+
+# Note - It is possible to include both 'layout.tsx' and 'template.tsx'. In such scenario layout file renders first and layout's children is replaced by the component exported from the template file. Templates are not common requirement and we should always rely on layouts for or shared UI.
