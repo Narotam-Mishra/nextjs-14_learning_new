@@ -413,3 +413,21 @@ Q. How rendering process works in case of nested layouts?
 1). We can display loading state as soon as a user navigates to a new route.
 
 2). Next.js allows the creation of shared layouts that remain interactive while new route segments are loading.
+
+## Lec 24 - Error Handling (6:48)
+
+# Special files 
+- error.tsx
+
+# Errors are inevitable for instance a failed network request trying to fetch a review could occur. Let us introduce an error scenario in our reviewId page.
+
+# An error in a deeply nested component like reviewId breaks the entire application. A better approach is to handle error gracefully affecting only the concerned segment while keeping the rest of the application functional.That's where 'error.tsx' file comes into play.
+
+# Error boundaries have to be client components in Next.js.
+
+# 'error.tsx' component can also receive the error object as a prop to display more information so we destructure error and we replace hard coded text with 'error.message'
+
+# Tasks of 'error.tsx' :-
+- Automatically wrap a route segment and its nested children in a React Error Boundary,
+- Create error UI tailored to specific segments using the file-system hierarchy to adjust granularity,
+- Isolate errors to affected segments while keeping the rest of the application functional.
