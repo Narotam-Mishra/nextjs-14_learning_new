@@ -393,3 +393,23 @@ Q. How rendering process works in case of nested layouts?
 # Templates :- Templates are similar to layouts in that they wrap each child layout or page. But with templates, when a user navigates between routes that share a template, a new instance of the component is mounted, DOM elements are recreated, state is not preserved and effects are re-synchronized.
 
 # Note - It is possible to include both 'layout.tsx' and 'template.tsx'. In such scenario layout file renders first and layout's children is replaced by the component exported from the template file. Templates are not common requirement and we should always rely on layouts for or shared UI.
+
+## Lec 23 - Loading UI (3:12)
+
+# Special Files 
+- page.tsx
+- layout.tsx
+- template.tsx
+- not-found.tsx
+- loading.tsx
+
+# 'loading.tsx' - This file allows us to create loading states that are displayed to users while specific route segment's content is loading. The loading state appears immediately upon navigation, giving users the assurance that the application is responsive and actively loading content.
+
+# To create a loading state we simply need to add a 'loading.tsx' file to the designated folder. Let's consider implementing a loading state for the blog route segment.
+
+# Above 'loading.tsx' file will automatically wrap 'page.tsx' file and all its nested children within a react suspense boundary.
+
+# Benefits of 'loading.tsx' file :-
+1). We can display loading state as soon as a user navigates to a new route.
+
+2). Next.js allows the creation of shared layouts that remain interactive while new route segments are loading.
