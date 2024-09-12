@@ -441,3 +441,15 @@ Q. How rendering process works in case of nested layouts?
 # To ensure that we can recover on client side, we need to convert our 'page.tsx' to a client component as well. So we need to add "use client" at top of the file.
 
 # Executing the 'reset' function attempts to render the error boundaries contents if successful the fallback error component is replaced with the re-rendered content from 'page.tsx'. That's how we recover from errors in the new app router.
+
+## Lec 26 - Handling errors in Nested Routes (2:43)
+
+# Nested nature of components influences how our 'error.tsx' file 
+
+# Errors bubble up to the closest parent error boundary which implies that an 'error.tsx' file will cater to errors for all its nested child segments.
+
+# By positioning 'error.tsx' files at different levels in the nested folders of a route we can achieve a more granular level of error handling.
+
+# Once we move 'error.tsx' file top in hierarchy to products component we can see the same error message as before however this time the entire products route is replaced by the UI from the 'error.tsx' file, the error from 'page.tsx' in the review ID bubbles up to the nearest error boundary which is now defined in 'error.tsx' file in the product folder.
+
+# The placement of 'error.tsx' file plays a crucial role in determining the scope of error handling allowing for more precise control over which parts of the UI are affected when errors occur, deeper the placement of error.tsx more granular is error handling
