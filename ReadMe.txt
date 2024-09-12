@@ -431,3 +431,13 @@ Q. How rendering process works in case of nested layouts?
 - Automatically wrap a route segment and its nested children in a React Error Boundary,
 - Create error UI tailored to specific segments using the file-system hierarchy to adjust granularity,
 - Isolate errors to affected segments while keeping the rest of the application functional.
+
+## Lec 25 - Recovering from Errors (2:12)
+
+# Error boundary defined in 'error.tsx' file comes with a handy prop, it receives a 'reset' function which we can destructure along with the error object.
+
+# We will add a button that triggers the reset function on click offering a way to retry rendering the component in 'page.tsx'.
+
+# To ensure that we can recover on client side, we need to convert our 'page.tsx' to a client component as well. So we need to add "use client" at top of the file.
+
+# Executing the 'reset' function attempts to render the error boundaries contents if successful the fallback error component is replaced with the re-rendered content from 'page.tsx'. That's how we recover from errors in the new app router.
