@@ -14,11 +14,11 @@ export default function ReviewDetails({
     reviewId: string;
   };
 }) {
-  const random = getRandomInt(2);
+  // const random = getRandomInt(2);
 
-  if(random === 1){
-    throw new Error("Error loading review")
-  }
+  // if(random === 1){
+  //   throw new Error("Error loading review")
+  // }
   
   if(parseInt(params.reviewId) > 1000){
     notFound();

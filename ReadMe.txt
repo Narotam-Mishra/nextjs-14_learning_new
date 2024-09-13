@@ -452,4 +452,12 @@ Q. How rendering process works in case of nested layouts?
 
 # Once we move 'error.tsx' file top in hierarchy to products component we can see the same error message as before however this time the entire products route is replaced by the UI from the 'error.tsx' file, the error from 'page.tsx' in the review ID bubbles up to the nearest error boundary which is now defined in 'error.tsx' file in the product folder.
 
-# The placement of 'error.tsx' file plays a crucial role in determining the scope of error handling allowing for more precise control over which parts of the UI are affected when errors occur, deeper the placement of error.tsx more granular is error handling
+# The placement of 'error.tsx' file plays a crucial role in determining the scope of error handling allowing for more precise control over which parts of the UI are affected when errors occur, deeper the placement of error.tsx more granular is error handling.
+
+## Lec 27 - Handling Errors in Layouts (3:01)
+
+# As we know an 'error.tsx' file will handle errors for all its nested child segments. However there is a nuance when it comes to a 'layout.tsx' component within the same segment. There are boundary that doesn't catch errors thrown here because it is nested inside the layout component.
+
+# The error boundary will not handle errors thrown in a 'layout.tsx' component within the same segment, to navigate around this we will need to place the 'error.tsx' file in the layout's parent segment.
+
+# Hence the placement of the 'error.tsx' file plays a pivotal role in managing errors efficiently across different segments of the application
