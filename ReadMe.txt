@@ -460,4 +460,41 @@ Q. How rendering process works in case of nested layouts?
 
 # The error boundary will not handle errors thrown in a 'layout.tsx' component within the same segment, to navigate around this we will need to place the 'error.tsx' file in the layout's parent segment.
 
-# Hence the placement of the 'error.tsx' file plays a pivotal role in managing errors efficiently across different segments of the application
+# Hence the placement of the 'error.tsx' file plays a pivotal role in managing errors efficiently across different segments of the application.
+
+## Lec 28 - Parallel Routes (11:45)
+
+# Advanced Routing concepts in Next.js 
+
+# Parallel Routes :- Parallel routes are an advanced routing mechanism that allows for the simultaneous rendering of multiple pages within the same layout.
+
+# Scenario 7 - consider the challenge of building a complex dashboard for a web application where we need to display various views like user analytics 'Revenue metrics' and information all at once.
+
+# The traditional approach of component composition (define component in parts) is effective and using parallel routes we can achieve the same outcome with additional benefits.
+
+# Parallel routes in Next.js are defined using a feature known as slots. Slots help structure our content in a modular fashion.
+
+# To define a slot, we use the '@folder' naming convention.
+
+# Each slot is then automatically passed as a prop to its corresponding 'layout.tsx' file.
+
+# In context of dashboard example, we would define three distinct slots within the dashboard folder, these are - users, revenue & notifications.
+
+# Each slot (users, notifications & revenue) is automatically passed to the `layout.tsx` file component as a prop which we can then use to structure the dashboard.
+
+# Note - slots are not route segments and do not affect the URL structure.
+
+# 'children' prop in complex-dashboard's 'layout.tsx' file is equivalent to 'complex-dashboard/@children/page.tsx'. so technically there are four slots in 'layout.tsx' file.
+
+# Benefits of using Parallel routes :-
+- A clear benefit of parallel routes is their ability to split a single layout into various slots, making the code more manageable. This is particularly advantageous when different teams work on various section of the page.
+
+# The true benefit of parallel routes lies in their capacity for independent route handling and sub-navigation.
+
+# One of the most compelling features of parallel routes is the ability to handle each route independently.
+
+# Independent Route Handling :- Each slot of our layout, such as user analytics, revenue metrics can have its own loading and error states. If user analytics data takes longer to load we can display a loading spinner specifically for that section while other parts remain interactive. Thus it helps in improving UI experience and simplifies debugging and maintenance.
+
+# Sub-navigation in routes :- Each slot of our dashboard can essentially function as a mini-application, complete with its own navigation and state management.
+
+# Parallel routes allow simultaneous rendering of different pages within the same layout. it is defined using slots. Slots organise content in a modular fashion making code more manageable. Thus it simplifies code management and enchance user experience with independent route handling and sub-navigation.
