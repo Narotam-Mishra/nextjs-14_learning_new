@@ -498,3 +498,27 @@ Q. How rendering process works in case of nested layouts?
 # Sub-navigation in routes :- Each slot of our dashboard can essentially function as a mini-application, complete with its own navigation and state management.
 
 # Parallel routes allow simultaneous rendering of different pages within the same layout. it is defined using slots. Slots organise content in a modular fashion making code more manageable. Thus it simplifies code management and enchance user experience with independent route handling and sub-navigation.
+
+## Lec 29 - Unmatched Routes (9:06)
+
+# In case of complex dashboard example, a usecase would be navigating between a default list of notifications and archive list of notifications.
+
+# Unmatched routes - By default the content rendered within a slot matches the current URL. In our dashboard folder we have four slots. 'children' represented by 'page.tsx', users, revenue and notifications, all these slots render their defined content when visiting complex dashboard however when navigating to '/complex-dashboard/archived' only the notifications slot has a matching route and other three routes i.e children, users and revenue become unmatched routes.
+
+# When dealing with an unmatched slot, the content rendered by Next.js depends on the routing approach. In case of navigation within the UI Next.js retains the previously active state of a slot regardless of changes in the URL which means when we navigate between the defualt notifications and archived notifications, the other slots i.e children, users and revenue remain unaffected. These slots continue to display whatever content they were showing beforeand and are not influenced by the shift in the URL path.
+
+# In case of page reload Next.js immediately searches for a 'default.tsx' file within each unmatched slot. the presence of this file is critical as it provides the default content that Next.js will render in the user interface.
+
+# Note - If the 'default.tsx' file missing in any of the unmatched slots for the current route, the NExt.js will render 404 error.
+
+# 'default.tsx' - the `default.tsx` file in Next.js serves as a fallback to render content when the framework cannot retrieve a slot's active state from the current URL.
+
+# We have complete freedom to define the UI for unmatched routes: we can either mirror the content found in 'page.tsx' or craft an entirely custom view.
+
+# In our example, to prevent 404 error, we have to include 'default.tsx' files with the three unmatched routes.
+
+# To prevent 404 error for the other slots when accessing this route we need to setup default views. The default view should be at the same level in the directory structure as 'page.tsx'
+
+# The 'default.tsx' file will act as fallbacks for routes without specific content. This approach ensures that we don't accidentally render a route that shouldn't be parallel renderd.
+
+# In Parallel routing content within the slot usually matches the current URL however unmatched slots the behaviour varies on how the navigation occurs, if navigated from the UI the slot's previously active state is rendered, on a page reload Next.js looks for a 'default.tsx' file in the slot and lacking that a 404 error appears.
