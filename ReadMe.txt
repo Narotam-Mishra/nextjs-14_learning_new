@@ -522,3 +522,10 @@ Q. How rendering process works in case of nested layouts?
 # The 'default.tsx' file will act as fallbacks for routes without specific content. This approach ensures that we don't accidentally render a route that shouldn't be parallel renderd.
 
 # In Parallel routing content within the slot usually matches the current URL however unmatched slots the behaviour varies on how the navigation occurs, if navigated from the UI the slot's previously active state is rendered, on a page reload Next.js looks for a 'default.tsx' file in the slot and lacking that a 404 error appears.
+
+## Lec 30 - Conditional Routes (3:47)
+
+# Parallel routing offer a way to implement conditional routing. FOr example :- based on user's authentication state we can choose
+to render the dashboard for authenticated users or a login page for those who are not authenticated. This is powerful as it enables fully separate code on the same URL.
+
+# parallel routes allow us to conditionally render pages based on certain conditions keeping our code well separated under the same URL. This login slot also benefits from independent error and loading states as well as sub-navigation to a possible signup or forgot password route.
