@@ -529,3 +529,31 @@ Q. How rendering process works in case of nested layouts?
 to render the dashboard for authenticated users or a login page for those who are not authenticated. This is powerful as it enables fully separate code on the same URL.
 
 # parallel routes allow us to conditionally render pages based on certain conditions keeping our code well separated under the same URL. This login slot also benefits from independent error and loading states as well as sub-navigation to a possible signup or forgot password route.
+
+## Lec 31 - Intercepting Routes (10:27)
+
+# Two advanced routing patterns in Next.js are :-
+1). parallel routes,
+2). Intercepting routes 
+
+# Intercepting routes allow us to intercept or stop the default routing behaviour to present an alternative view or component when navigating through UI, while still preserving the intended route for scenarios like page reloads. This can be useful if we want to show a route while keeping the context of the current page.
+
+# Clicking on a login link or button normally take us through a full login page however with intercepting routes we can configure the application to display login modal instead while the URL is still updated to reflect the '/login' route, this ensures the link remains sharable, if the page is reloaded or if someone accesses the page using shared link the full login page is displayed as expected.
+
+# Similar in photo feed application where users can browse through a list of images clicking on a photo would navigate users to a new page dedicated to that image. With intercepting routes, clicking on a photo opens a modal within the feed displaying an enlarged photo and details, the URL updates to reflect the selected photo ensuring it is sharable, direct URL access or page reloads still lead to a full page view of the photo for complete details.
+
+# Defining intercepting routes in Next.js application involves certain conventions.
+
+# Intercepting Routes Conventions :- To create an intercepting route at same level we use a dot (.) within parentheses notation in a folder name '(.)f2'
+
+# Concept of Intercepting route - display a different UI while in the context of the current page but render the regular UI on page reload.
+
+# In our example, 'f2' and 'intercepting f2' are on the same level. It is also possible to match segments one level above, the convention is to prefix the folder name with two dots '(..)' within the parentheses
+
+# when we use '(..)' folder naming convention, it means we are essentially saying use this route instead of the F3 route one segment above when navigating from 'page.tsx' within f4 folder to f3 folder.
+
+# The last convention '(...)' is used to match segments from the root app directory.
+
+# Note - '(..)(..)' this convention is used to match segments two level above but there is an issue with this convention and it doesn't quite work.
+
+# Intercepting routes allow us to load a route from another part of our application within the current layout. This routing paradigm can be useful when we want to display the content of the route without the user switching to a different context.
