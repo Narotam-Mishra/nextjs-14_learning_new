@@ -557,3 +557,26 @@ to render the dashboard for authenticated users or a login page for those who ar
 # Note - '(..)(..)' this convention is used to match segments two level above but there is an issue with this convention and it doesn't quite work.
 
 # Intercepting routes allow us to load a route from another part of our application within the current layout. This routing paradigm can be useful when we want to display the content of the route without the user switching to a different context.
+
+## Lec 32 - Parallel Intercepting Routes (5:57)
+
+# Advanced Routing Patterns
+- Parallel routes
+- Intercepting routes
+
+# Photo feed example which will use both above techniques.
+
+# Photo feed is an example of parallel route which has been intercepted. The URL updates to photo feed followed by the image id but modal route is a parallel intercepted route that is being rendered in the same layout and has the context of the photo feed in the background.
+
+# Typically with modals clicking on browser's back button would take you to the previous page and not just close the modal but with parallel intercepting routes we can fix this issue.
+
+# Parallel intercepting routes concept can be applied for opening a login modal when we click on login button but a login page when we directly navigate to '/login'
+
+# Steps to implement Parallel Intercepting Routes 
+1). find the list of images and place them in the photos folder within photo-feed folder,
+2). import all images in typescript file 'wonders' and create an array out of these images with some metadata for each image,
+3). create a 'page.tsx' file in photo-feed folder and render the list of images using the 'wonders' array, this page will render the photo feed when we navigate to its URL,
+4). create the photo details dynamic route, within the photo-feed folder create a new '[id]' folder, this file will render the individual photo details when we navigate to particular photo,
+5). for this step we need to intercept the navigation from the feed to the details page, since we want a modal that will render on the top of current feed we need a parallel route first, so within the 'photo-feed' folder we will create a '@modal' as parallel route and included in 'layout.tsx' file along with children slot (children & modal where children correspond to 'page.tsx'), then we will create '(..)photo-feed' route within '@modal' that will intercept photo feed route one segemnt above which also contain '[id]' folder, within [id] folder create a page that renders the photo details similar to the Id route from before but this time place inside a modal.
+
+# Reloading will render the original route,
