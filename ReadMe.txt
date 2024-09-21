@@ -618,3 +618,11 @@ Q. How to create route handlers?
 # Working with route handlers - 'get' request handling
 
 # GET route handler will return a new respone object of the common array in the JSON format
+
+## Lec 35 - Handling POST Request (4:22)
+
+# It's important to match the function name with HTTP method we want to handle.
+
+# Every route handler function receives the standard web request object as a parameter. From request object we will extract the JSON body specified as part of the request and for this we will call `request.json()` method.
+
+# define a 'post' handler in the 'route.ts' file, make use of the request parameter to access the request body and then send an appropriate response.
