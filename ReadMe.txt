@@ -580,3 +580,35 @@ to render the dashboard for authenticated users or a login page for those who ar
 5). for this step we need to intercept the navigation from the feed to the details page, since we want a modal that will render on the top of current feed we need a parallel route first, so within the 'photo-feed' folder we will create a '@modal' as parallel route and included in 'layout.tsx' file along with children slot (children & modal where children correspond to 'page.tsx'), then we will create '(..)photo-feed' route within '@modal' that will intercept photo feed route one segemnt above which also contain '[id]' folder, within [id] folder create a page that renders the photo details similar to the Id route from before but this time place inside a modal.
 
 # Reloading will render the original route,
+
+## Lec 33 - Route Handlers (7:01)
+
+# Concept of Route Handlers 
+
+# With Next.js app router we have the capability to handle more than just page routing we can also create custom request handlers for our routes using a feature called route handlers.
+
+# Unlike page routes, which respond with HTML content, route handlers allow us to create RESTful endpoints, giving us full control over the response where we can perform CRUD operations with a database and thus there is no overhead to create and configure a separate server.
+
+# Route handlers are also great for making external API requests. For example - if we are building an application that requires fetching data from a third party service, route handlers are ideal, they are on server side ensuring that sensitive information like private keys remain secure and never gets shipped to the browser.
+
+# Route Handlers are the equivalent of API routes in Page router.
+
+# Thus Next.js simplifies routing on both frontend and backend.
+
+# similar to page routes, 'Route Handlers' must also be placed inside 'app' folder. 
+
+# In order to create 'route handlers' file name should be 'route.ts'. This is a Next.js convention that we must have to follow. The function name matching an HTTP verb is another convention we must have to follow.
+
+Q. How to create route handlers?
+==> create a 'route.ts' file that exports HTTP verbs as functions. In our example - a get request to 'hello-route-handlers' results in the get handler being executed and responding with 'Hello world from route handlers' plaintext.
+
+# Two important points related to route handlers :-
+1). similar to page routes, 'route handlers' can be organized in folders and nested within sub-folders, this allows for cleaner organization and easier management of routes.
+
+2). Be mindful of potential conflicts of page routes and route handlers. For example - if we have a folder named 'profile' where we have both 'route.ts' & 'page.tsx' files. The 'route.ts' will handle the request by default. 
+
+# To avoid the above conflict between 'page.tsx' & 'route.ts' and both of them working then we can move the route handlers to an API sub-directory.
+
+# 'Route Handlers' allow us to create custom request handlers for a given route they are defined in a 'route.js' or 'route.ts' file inside the app directory.
+
+# Note - A 'route.ts' file at the same route segment level as that of 'page.tsx' will result in conflict and the page will not be served.
