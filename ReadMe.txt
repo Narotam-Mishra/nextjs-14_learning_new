@@ -612,3 +612,9 @@ Q. How to create route handlers?
 # 'Route Handlers' allow us to create custom request handlers for a given route they are defined in a 'route.js' or 'route.ts' file inside the app directory.
 
 # Note - A 'route.ts' file at the same route segment level as that of 'page.tsx' will result in conflict and the page will not be served.
+
+## Lec 34 - Handling GET Request (4:13)
+
+# Working with route handlers - 'get' request handling
+
+# GET route handler will return a new respone object of the common array in the JSON format
