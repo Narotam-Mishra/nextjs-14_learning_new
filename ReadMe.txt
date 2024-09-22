@@ -626,3 +626,15 @@ Q. How to create route handlers?
 # Every route handler function receives the standard web request object as a parameter. From request object we will extract the JSON body specified as part of the request and for this we will call `request.json()` method.
 
 # define a 'post' handler in the 'route.ts' file, make use of the request parameter to access the request body and then send an appropriate response.
+
+## Lec 36 - Dynamic Route Handlers (4:43)
+
+# handling 'patch' and 'delete' requests is slightly different in the sense that we need to specify the Id of the information updating or deleting. Id is a dynamic segemnt of the URL.
+
+# we neeed to create route handlers for '/comments/:id'.
+
+# Dynamic route handlers work similar to dynamic page routes. so we create '[id]' folder where we create 'route.ts' file in which we define handler function that will return a single comment whose id matches the id route parameter.
+
+# Handler function receives two parameters - a). request object & b). context,
+
+# From our example the only value of context is params which is an object containing the dynamic route parameters for the current route
