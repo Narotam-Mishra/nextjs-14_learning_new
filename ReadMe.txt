@@ -638,3 +638,7 @@ Q. How to create route handlers?
 # Handler function receives two parameters - a). request object & b). context,
 
 # From our example the only value of context is params which is an object containing the dynamic route parameters for the current route
+
+## Lec 37 - Handling PATCH Request (4:07)
+
+# A 'patch' request applies partial modifications to a resource.
