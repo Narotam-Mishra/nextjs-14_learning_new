@@ -642,3 +642,11 @@ Q. How to create route handlers?
 ## Lec 37 - Handling PATCH Request (4:07)
 
 # A 'patch' request applies partial modifications to a resource.
+
+## Lec 38 - Handling DELETE Request (3:16)
+
+# A delete request delete a specified resource.
+
+# In our example we will delete a comment by Id.
+
+# 'delete' method will receive 'request' & 'context' as parameters similar to patch method.
