@@ -650,3 +650,15 @@ Q. How to create route handlers?
 # In our example we will delete a comment by Id.
 
 # 'delete' method will receive 'request' & 'context' as parameters similar to patch method.
+
+## Lec 39 - URL Query Parameters (3:47)
+
+# consider an example where we want to filter array values (array of comments) based on specific query.
+
+# To handle 'query parameters' effectively we need the request parameter.
+
+# Until now we've been defining the request type as the standard 'request' API. However in context of Next.js the type we are actually dealing with is 'NextRequest' which we can import from 'next/server'.
+
+# The NextRequest object provides convenient methods for managing query methods for managing query parameters with ease.
+
+# query paramters in route handlers are often optional but they are incredibly useful for implementing search, sort and pagination functionalities.
