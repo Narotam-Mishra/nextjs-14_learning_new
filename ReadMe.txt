@@ -662,3 +662,11 @@ Q. How to create route handlers?
 # The NextRequest object provides convenient methods for managing query methods for managing query parameters with ease.
 
 # query paramters in route handlers are often optional but they are incredibly useful for implementing search, sort and pagination functionalities.
+
+## Lec 40 - Redirects in Route Handlers (2:49)
+
+# when we try to access comment by id and that 'id' doesn't exist then we encounter an error because the current code logic doesn't handle Ids that are not present in the comments array. Let us improve this by redirecting user to the comments listing page if requested 'id' not found.
+
+# For redirection we will make use of 'redirect' function from 'next/navigation'
+
+# Status code 307 is used for redirection.
