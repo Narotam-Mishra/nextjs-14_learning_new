@@ -670,3 +670,29 @@ Q. How to create route handlers?
 # For redirection we will make use of 'redirect' function from 'next/navigation'
 
 # Status code 307 is used for redirection.
+
+## Lec 41 - Headers in Route Handlers (6:30)
+
+# HTTP headers represent the metadata associated with an API request and response. This metadata can be classified into two categories :-
+1). Request Headers :- These are sent by the client, such as a web browser, to the server. They contain essential information about the request, which helps the server to understand and process it correctly. For example :-
+==>  'User-Agent' - It identifies the browser and Operating system to the server. It is often used for browser specific content rendering and analytics
+==> 'Accept' - It indicates the content types like text, video or image formats that the client can process. It enables the server to deliver the resource in a format suitable for the client.
+==> 'Authorization' - This header used by the client to authenticate itself to the server.
+
+2). Response Headers :- These are sent back from the server to the client. They provide information about the server and the data being sent in the response. For example :-
+==> 'Content-Type' - This header indicates the media type of the response. It tells the client what the data type of the returned content is, such as text/html for HTML documents, application/json for JSON data etc.
+
+# When we define route handlers in Next.js, it is important how to read request headers and send back response headers.
+
+# By default the request has two headers - Accept & User-Agent.
+
+Q. How do we read these headers in route handler?
+# There are two ways :- 
+1). request parameter
+2). headers function - we can also choose to use headers function that Next.js provide.
+
+# How to set outgoing headers
+
+# headers returned from headers() method are read only , to set headers we need to return a new response with the new headers
+
+# To set headers we need to return a new response with new headers.Using request-response headers we can apply any logic we want to within the route handler
