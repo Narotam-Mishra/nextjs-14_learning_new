@@ -696,3 +696,17 @@ Q. How do we read these headers in route handler?
 # headers returned from headers() method are read only , to set headers we need to return a new response with the new headers
 
 # To set headers we need to return a new response with new headers.Using request-response headers we can apply any logic we want to within the route handler
+
+## Lec 42 - Cookies in Route Handlers (4:02)
+
+# Cookies are small pieces of data that a server sends to a user's web browser. The browser may store the cookie and send it back to the same server with later requests.
+
+# Cookies are mainly used for three purposes :-
+- Session management like logins and shopping carts,
+- Personalization like user preferences and themes,
+- Tracking like recording and analyzing user behaviour.
+
+# set and get cookies inside of a route handler. There are two approaches to both setting and getting cookies :-
+1). to set a cookie the first option is to return new response using the Set-Cookie header. To read (get) above cookie in our route handler we can make use of the request parameter. This is the first approach to set and get cookies in the route handler (using "Set-Cookie" header and the request object)
+
+2). the second option is to set and get cookies using cookies function provided by Next.js,
