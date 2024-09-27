@@ -710,3 +710,19 @@ Q. How do we read these headers in route handler?
 1). to set a cookie the first option is to return new response using the Set-Cookie header. To read (get) above cookie in our route handler we can make use of the request parameter. This is the first approach to set and get cookies in the route handler (using "Set-Cookie" header and the request object)
 
 2). the second option is to set and get cookies using cookies function provided by Next.js,
+
+## Lec 43 - Caching in Route Handlers (4:09)
+
+# Route Handlers are cached by default when using the 'GET' method with the Response object in Next.js,
+
+Q. How to opt out of caching?
+- dynamic mode in 'Segment Config' Option
+
+# By default the value of dynamic is auto which attempts to cache as much as possible, we will set it to 'force-dynamic' ensuring that the handler is executed for each user request.
+
+# Beside the segment config option there are three other ways to opt out of caching for a route handler. These includes :-
+- using the Request object with the 'GET' method,
+- employing dynamic functions like headers() and cookies(),
+- using any HTTP method other than GET,
+
+# In all above four scenarios, response is not cached.
