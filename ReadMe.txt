@@ -726,3 +726,37 @@ Q. How to opt out of caching?
 - using any HTTP method other than GET,
 
 # In all above four scenarios, response is not cached.
+
+## Lec 44 - Middleware (8:22)
+
+# Middleware :- Middleware in Next.js is a powerful feature that offers a robust way to intercept and control the flow of requests and responses within our applications.
+
+# It does this at a global level significantly enhancing features like redirection, URL, rewrites, authentication, headers and cookies management, and more.
+
+# To create middleware in Next.js start by adding a `middleware.js/middleware.ts` file in source folder,
+
+# Middleware allows us to specify paths where it will be active. There are two main approaches to implement middleware in next.js :-
+1). Custom matcher config,
+2). Conditional statements
+
+# We will explore both approaches using redirection as an example.
+
+# Imagine a scenario where navigating profile page (/profile) should redirect the user to the home page,
+
+# when we try to navigate to '/profile' in the browser, it automatically re-directs to the homepage ('/') showcasing the matcher config approach,
+
+# for 2nd approach we will use conditional statements,
+
+# Apart from handling redirections middleware also allows URL re-writes which is a useful tool for legacy URL support or SEO,
+
+# By changing `redirect` to `rewrite` and navigating to '/profile' , we can see the URL in the browser stays the same but the response content changes.
+
+# Use of cookies and headers in middleware :- we will modify our middleware to handle user preferences for themes and add a custom header for all responses.
+
+# custom headers are useful for passing additional information in responses which can be leveraged by client side scriptss or for debugging purposes.
+
+# We can see middleware can be effective actively used to manipulate both cookies and headers.
+
+# Middleware in Next.js allow us to effectively control and intercept the request-response cycle enabling redirects URL rewrites and the manipulation of headers and cookies.
+
+# 
