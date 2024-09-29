@@ -1,5 +1,7 @@
 ### Next.js 14 Learning 
 
+## Section 1 - Routing in Next.js 
+
 ## Lec 1 - Introduction (5:05)
 
 Q. What is Next.js? 
@@ -759,4 +761,12 @@ Q. How to opt out of caching?
 
 # Middleware in Next.js allow us to effectively control and intercept the request-response cycle enabling redirects URL rewrites and the manipulation of headers and cookies.
 
-# 
+## Section 2 - Rendering in Next.js
+
+## Lec 45 - Rendering (1:31)
+
+# Rendering is the process that transform the code we write into user interfaces,
+
+# In Next.js, choosing the right time and place to do this rendering is vital for building a performant application,
+
+# Rendering in React ----> Rendering in Next.js
