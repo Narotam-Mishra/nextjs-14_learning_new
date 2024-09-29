@@ -770,3 +770,23 @@ Q. How to opt out of caching?
 # In Next.js, choosing the right time and place to do this rendering is vital for building a performant application,
 
 # Rendering in React ----> Rendering in Next.js
+
+## Lec 46 - Client-side Rendering (CSR) (3:22)
+
+# Rendering in React - As we know React being the go-to library for creating SPA.
+
+# In a typical Single Page Application (SPA), when a client makes a request the server sends a single HTML page to the browser. This HTML page often contains just a simple div tag and reference to a JS file then JS file is downloaded when HTML file is parsed. The downloaded JS code then generates the HTML on our computer and inserts into the DOM under the root div element and we can see the user interface in the browser. This process is evident when we see the HTML appear into the DOM inspector but not in the view source option which shows the HTML file sent by the server to the browser. This method of rendering where the component code is transformed into a user interface directly within the browser is known as Client-side Rendering (CSR).
+
+# CSR quickly became the standard for SPAs, with widespread adoption,
+
+# It wasn't long before developers began noticing some inherent drawbacks to this approach.
+
+# Drawbacks of CSR :-
+==> SEO - Generating HTML that mainly contains a single div tag is not optimal for SEO, as it provides little content for search engines to index.
+# Large bundle size and a waterfall of network requests for API responses from deeply nested components may result in meaningful content not being rendered fast enough for a crawler to index it
+
+==> performance - Having the browser (the client) handle all the work, such as fetching data, computing the UI and making the HTML interactive, can slow things down. Users might see a blank screen or a loading spinner while the page loads. This thing get worse with time as each new feature added to the application increases the size of the JavaScript bundle, prolonging the wait time for users to see the UI. This delay is noticeable for users with slow internet connection.
+
+# CSR laid the ground work for the interactive web applications we're used to today but to enchance SEO and performance, developers started looking for better solutions
+
+
