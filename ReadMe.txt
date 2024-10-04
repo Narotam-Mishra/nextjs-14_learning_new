@@ -818,7 +818,7 @@ Q. How to opt out of caching?
 
 # SSR, on the other hand, renders pages on-demand in response to user requests. It is suitable for personalized content like social media feeds, where the HTML depends on the logged-in user,
 
-# Server-side Rendering (SSR) was a significant improvement over CLient-Side Rendering (CSR), providing faster page loads and better SEO, however SSR introduced its own set of challenges.
+# Server-side Rendering (SSR) was a significant improvement over Client-Side Rendering (CSR), providing faster page loads and better SEO, however SSR introduced its own set of challenges.
 
 # Drawbacks of SSR :-
 1). We have to fetch everything before we can show anything :- Components cannot start rendering and then pause or "wait" while data is still being loaded.
@@ -837,3 +837,27 @@ Q. How to opt out of caching?
 # These create an "all or nothing" waterfall problem that spans from the server to the client, where each issue must be resolved before moving to the next one.
 
 # This is inefficient if some parts of our app are slower than other, as is often the case in real-world apps.
+
+## Hydration in Next.js is the process where a server-rendered React application gets "re-activated" on the client side. In a Next.js application, content is initially rendered on the server, then sent as HTML to the client. Once the JavaScript code arrives, React takes over and hydrates the static HTML with interactivity, allowing it to become a fully functional React app.
+
+Q. How Hydration Works ?
+1). Server-Side Rendering (SSR): Next.js renders the page on the server and sends the fully rendered HTML to the client.
+
+2). Hydration: When the client receives the static HTML, React "hydrates" it. This means it attaches event listeners, state, and other React features to the existing HTML structure, making it interactive.
+
+## Lec 48 - Suspense for SSR (7:48)
+
+# Drawbacks of SSR - All or Nothing Waterfall
+1). Data Fetching must be completed before server can begin rendering HTML,
+
+2). The JavaScript required for the components needs to be fully loaded on the client side before the hydration process can start,
+
+3). All components have to be hydrated before they become interactive,
+
+# Theses issues contribute to an 'all-or-nothing' waterfall scenario, resulting in inefficiencies, especially if certain parts of your application are slower than others.
+
+# To address these performance drawbacks of SSR, React 18 introduced the suspense SSR architecture,
+
+# Suspense SSR Architecture :- This new architecture allows us to use the suspense component to unlock two major SSR features and they are :-
+1). HTML streaming on the server,
+2). Selective hydration on the client,
