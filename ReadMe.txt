@@ -944,7 +944,7 @@ Q. How Hydration Works ?
 
 # The main issue is not the round trips themselves, but that these round trips are made from the client to the server.
 
-# Server Component enable applications to shift these sequential round trips to the server side. By moving thsi logic to the server, request latency is reduced and overall performance is improved eliminating client-server waterfalls.
+# Server Component enable applications to shift these sequential round trips to the server side. By moving this logic to the server, request latency is reduced and overall performance is improved eliminating client-server waterfalls.
 
 5). Caching :- Rendering on the server enables caching of the results, which can be reused in subsequent requests and across different users. This approach can significantly improve performance and reduce costs by minimizing the amount of rendering and data fetching required for each request.
 
@@ -974,11 +974,31 @@ Q. How Hydration Works ?
 
 Q. This deep dive into the evolution of rendering in react is great, but how exactly does it help understand rendering in Next.js? What's the connection?
 
-# The App Router in NExt.js is build around the RSC architecture, so all the features and benefits we've discussed are already baked into the latest version of Next.js. 
+# The App Router in Next.js is build around the RSC architecture, so all the features and benefits we've discussed are already baked into the latest version of Next.js. 
 
 # By understanding the evolution of React's rendering, we now have the necessary background for the rest of section where we focus on Next.js.
 
+## Lec 50 - Server and Client Components (8:20)
 
+# RSC + Next.js
 
+# By default, every component in a Nextjs app is considered to be a server component. This include root layout and root page that come out of the box with a new Next.js project.
 
+# When we run the application and check console we don't see any log message in the browser console instead we see the message in the terminal where we are running our application hence it is clear our component is server component. This component runs on the server bringing along all the benefits of server components such as zero bundle size, access to server side resources, enchanced security, better SEO etc.
+
+# But Server components have their limitations like they can't interact directly with browser APIs or handle user activity. If we try to incorporate some state into our about page using `useState` hook then we will see an error this is because `useState` expects a client component environment but our about page is a server component and server components cannot use state because they are rendered on the server where there is no concept of state exist. So this confirms a fact that every component created in Nextjs is a server component unless specified otherwise.
+
+# For Client components, we must include a directive or to put it simply a special instruction within the double quotes i.e "use client"
+
+# "use client" --> this directive acts as our ticket to cross the boundary from server to client side and is what allows us to define client components. It signals the Nextjs that the current component with any components it imports is intended for client side execution. As a result the component gains the full access to browser APIs and ability to handle interactivity.
+
+# Client components rendering behaviour :- client components are primarily executed in the client and have access to the browser APIs but they are also pre-renderd once on the server to allow the user to immediately see page's HTML content rather than blank screen. It is an optimization strategy that Nextjs implements and is recommended by React.
+
+# In the RSC architecture and by extension in the Next.js app router, components are server components by default.
+
+# To use client components, we must include the use client directive at the top.
+
+# Server components are renderd only on the server
+
+# Client components are rendered once on the server and then on the client (browser).
 
