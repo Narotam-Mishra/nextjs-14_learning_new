@@ -1126,4 +1126,20 @@ d). As a developer, we do not need to choose between static and dynamic renderin
 
 # This streaming technique is different from Suspense SSR where we are focusing on Nextjs where streaming is integrated into Nextjs app router by default.
 
-# 
+## Lec 55 - Server and Client Composition Patterns (1:10)
+
+# Server components :- we can use server components for following usecases :-
+- Fetching data,
+- Directly accessing backend resources,
+- Protecting sensitive information (like access tokens and API keys) on the server,
+- Keeping large dependencies server-side, which helps in reducing client-side JavaScript.
+
+# Client components usecase:-
+- Adding interactivity,
+- Handling event listeners (such as onClick(), onChange(), etc)
+- Managing state and lifecycle effects (using hooks like useState, useReducer and useEffect)
+- using browser-exclusive APIs,
+- using custom hooks,
+- using React Class components
+
+## Lec 56 - 
