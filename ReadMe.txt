@@ -1043,7 +1043,7 @@ Q. How to Statically Render (a particular route / page)?
 
 # However, for development mode builds, a page will be pre-rendered or statically rendered for every request.
 
-# For example - If we visit home page, it is pre-rendered and served and this ensures that code changes are reflected in every 
+# For example - If we visit home page, it is pre-rendered and served and this ensures that code changes are reflected in every render of the page. 
 
 # Created new project next-test1 
 
@@ -1099,7 +1099,7 @@ Q. How does Nextjs know to download any component code ahead of time?
 Q. How to Dynamically Render?
 # During rendering, if a dynamic function is discovered, Nextjs will automatically switch to dynamic rendering the whole route.
 
-# In Nextjs, these dynamic functions are : cookies(), headers(), and searchParams() which acts more like prop available for every page. Using any of these will opt the whole route into dynamic rendering at request time
+# In Nextjs, these dynamic functions are : cookies(), headers(), and searchParams object which acts more like prop available for every page. Using any of these will opt the whole route into dynamic rendering at request time
 
 # Dynamically rendered pages are not statically rendered at build time.
 
@@ -1112,4 +1112,18 @@ b). Nextjs automatically switches to dynamic rendering when it comes across a dy
 
 c). This form of rendering is great for when we need to render HTML personalized to a user, such as a social media feed,
 
-d). As a developer, we do not need to choose between static and dynamic rendering. nextjs will automatically choose the best rendering strategy for each route based on the features and APIs used.
+d). As a developer, we do not need to choose between static and dynamic rendering. Nextjs will automatically choose the best rendering strategy for each route based on the features and APIs used.
+
+## Lec 54 - Streaming (4:21)
+
+# Third and final server rendering strategy i.e, Streaming
+
+# Streaming is a strategy that allows for progressive UI rendering from the server. Work is divided into chunks and streamed to the client as soon as it's ready. This enables users to see parts of the page immediately, before the entire content has finished rendering.
+
+# Streaming significantly improves both the initial page loading performance and the rendering of UI elements that rely on slower data fetches, which would otherwise block the rendering of entire route.
+
+# Streaming is integrated into Next.js App Router by default.
+
+# This streaming technique is different from Suspense SSR where we are focusing on Nextjs where streaming is integrated into Nextjs app router by default.
+
+# 
