@@ -1073,7 +1073,7 @@ Q. How does Nextjs know to download any component code ahead of time?
 
 # Prefetching is a technique used to preload a route in the background before the user navigates to it. 
 
-# Routes are automatically prefetched as they become visible in the user's viewport either when the page first loads or as as it comes into view through scrolling.
+# Routes are automatically prefetched as they become visible in the user's viewport either when the page first loads or as it comes into view through scrolling.
 
 # For static routes, the entire route is prefetched and cached by default.
 
@@ -1142,4 +1142,20 @@ d). As a developer, we do not need to choose between static and dynamic renderin
 - using custom hooks,
 - using React Class components
 
-## Lec 56 - 
+## Lec 56 - Server-only Code (7:27)
+
+# When we build Nextjs applications certain code is intended to execute only on the server. For instance, we might have modules or functions that use multiple libraries, use environment variables, interact directly with database, or process confidential information. Since JS modules can be shared between both client and server components it's possible for code that's meant only for server to unintentionally end up in the client.
+
+# If server-side code gets bundled into the client-side JavaScript, it could lead to a bloated bundle size, expose secret keys, database queries, and sensitive business logic. Hence it is crucial to separate server-only code from client-side code to protect the application's security and integrity.
+
+# server-only package 
+
+# To prevent unintended client-side usage of server-code we can use a package called server-only to provide a build time error if developers accidentally import one of these modules into a client component.
+
+# We won't be able to see the log message in the browser console but we can see it in the terminal because the page component is a server component.
+
+# When we run client-route page we can its output in both browser as well as terminal consoles as every client component is also rendered once on the server to generate the initial HTML.
+
+# In order to ensure that the function `serverSideFunction` remains server's side only we can use the `server-only` package.
+
+# When we import server-only module it ensures that the module causes a build time error if it is included in the client's side bundle 
