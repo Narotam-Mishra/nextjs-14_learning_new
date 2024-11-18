@@ -1144,6 +1144,8 @@ d). As a developer, we do not need to choose between static and dynamic renderin
 
 ## Lec 56 - Server-only Code (7:27)
 
+# Server Component Pattern
+
 # When we build Nextjs applications certain code is intended to execute only on the server. For instance, we might have modules or functions that use multiple libraries, use environment variables, interact directly with database, or process confidential information. Since JS modules can be shared between both client and server components it's possible for code that's meant only for server to unintentionally end up in the client.
 
 # If server-side code gets bundled into the client-side JavaScript, it could lead to a bloated bundle size, expose secret keys, database queries, and sensitive business logic. Hence it is crucial to separate server-only code from client-side code to protect the application's security and integrity.
@@ -1158,4 +1160,16 @@ d). As a developer, we do not need to choose between static and dynamic renderin
 
 # In order to ensure that the function `serverSideFunction` remains server's side only we can use the `server-only` package.
 
-# When we import server-only module it ensures that the module causes a build time error if it is included in the client's side bundle 
+# When we import server-only module it ensures that the module causes a build time error if it is included in the client's side bundle.
+
+## Lec 57 - Third Party Packages (5:29)
+
+# Server Component Pattern
+
+# Integration of third party packages - since server components introduce a new paradigm in react, third-party packages in the ecosystem are gradually adapting, beginning to add the "use-client" directive to components that rely on client-only features, marking a clear distinction in their execution environment. However many components from npm packages, which traditionally leverage client-side features, haven't yet integrated this directive. Having the absence of "use-client" means that while these components will function correctly in Client Component, they may encounter issues or might not work at all within Server Components. To address this, we can wrap third-party components that rely on client-only features in our own Client Components.
+
+# For the example, we will use the `react-slick` npm package which exports a react Carousel component. A Carousel component uses client side feature.
+
+# If we use Carousel component code on server-route that will thow an error this is because the slider Carousel component using client side features but the library code doesn't have "use-client" directive. One solution is to use "use-client" directive within server route but then we cannot use server only features like database calls, secret environment variables etc. To resolve this we must encapsulate third-party components that depend on client only features within our own client component.
+
+# Third-party packages in react ecosystem are in a transitional phase where numerous packages from npm haven't yet adopted the 'use-client' directive, wrapping such components in our own client-component will allow us to leverage the ecosystem of third-party packages while adhering to new server components model.
