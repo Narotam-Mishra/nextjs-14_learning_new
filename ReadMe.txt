@@ -1175,3 +1175,22 @@ d). As a developer, we do not need to choose between static and dynamic renderin
 # Third-party packages in react ecosystem are in a transitional phase where numerous packages from npm haven't yet adopted the 'use-client' directive, wrapping such components in our own client-component will allow us to leverage the ecosystem of third-party packages while adhering to new server components model.
 
 ## Lec 58 - Context Providers (6:07)
+
+# Server Component Pattern
+
+# For last server component pattern let us explore working with 'Context Providers'
+
+# Context providers are typically rendered near the root of an application to share global application state and logic. For example - the application theme
+
+# However, since React context is not supported in Server Components, attempting to create a context at the root of your application will result in an error,
+
+# To address this, we can create a context and render its provider inside a separate Client Component.
+
+# After creating theme context , we can see an error that you are importing a component that needs create context it only work in client component but none of its parents are marked with "use-client" directive to their server components by default.
+
+# To resolve above issue, we could convert `layout.tsx` to a client component by using `use-client` directive at the top.
+
+# However above approach signal to Next.js that the current layout file i.e 'layout.tsx' along with any component it imports is intended for client side execution which is not what we want. To fix this, we need to create our context and render its provider inside a separate client component. So we will create a separate file `ThemeProvider.tsx` in components folder.
+
+# Note - Even though we wrap the rest of the application within a client component, server components down the tree will remain server components.
+
