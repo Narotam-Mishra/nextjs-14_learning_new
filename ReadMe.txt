@@ -1186,11 +1186,26 @@ d). As a developer, we do not need to choose between static and dynamic renderin
 
 # To address this, we can create a context and render its provider inside a separate Client Component.
 
-# After creating theme context , we can see an error that you are importing a component that needs create context it only work in client component but none of its parents are marked with "use-client" directive to their server components by default.
+# After creating theme context , we can see an error that you are importing a component that needs create context, it only work in client component but none of its parents are marked with "use client" directive to their server components by default.
 
-# To resolve above issue, we could convert `layout.tsx` to a client component by using `use-client` directive at the top.
+# To resolve above issue, we could convert `layout.tsx` to a client component by using `use client` directive at the top.
 
 # However above approach signal to Next.js that the current layout file i.e 'layout.tsx' along with any component it imports is intended for client side execution which is not what we want. To fix this, we need to create our context and render its provider inside a separate client component. So we will create a separate file `ThemeProvider.tsx` in components folder.
 
 # Note - Even though we wrap the rest of the application within a client component, server components down the tree will remain server components.
 
+# We don't convert server component to a client component instead we define a new client component and invoke it within the server component using children props.
+
+## Lec 59 - Client-only Code (4:33)
+
+# For oue first client component pattern let's discuss about the separation of client only code.
+
+# It is important to restrict certain operations to the server, it's equally important to confine some functionality to the client side.
+
+# Client-only code typically interacts with browser-specific features like the DOM, the window object, localStorage etc which are not available on the server. Ensuring that such code is executed only on the client side prevents errors during server-side rendering. To prevent unintended server side usage of client side code, we can use a package called `client-only`.
+
+# For client-only code, we will `client-utils.ts` file in utils folder within src and our focus is on the concept of client only code not the function implementation details.
+
+# By importing `client-only` in a module we ensure that the module triggers a build time error if it is mistakenly included in server side code. Now if someone accidentally tries to use our client side function in a server component the build process will fail.
+
+# In the terminal we should see the error which acts a clear signal to developers about the inappropriate use of client specific code in a server context thereby preventing potential errors and ensuring that our application adheres to the intended architectural patterns.
