@@ -1204,8 +1204,14 @@ d). As a developer, we do not need to choose between static and dynamic renderin
 
 # Client-only code typically interacts with browser-specific features like the DOM, the window object, localStorage etc which are not available on the server. Ensuring that such code is executed only on the client side prevents errors during server-side rendering. To prevent unintended server side usage of client side code, we can use a package called `client-only`.
 
-# For client-only code, we will `client-utils.ts` file in utils folder within src and our focus is on the concept of client only code not the function implementation details.
+# For `client-only` code, we will `client-utils.ts` file in utils folder within src and our focus is on the concept of client only code not the function implementation details.
 
 # By importing `client-only` in a module we ensure that the module triggers a build time error if it is mistakenly included in server side code. Now if someone accidentally tries to use our client side function in a server component the build process will fail.
 
 # In the terminal we should see the error which acts a clear signal to developers about the inappropriate use of client specific code in a server context thereby preventing potential errors and ensuring that our application adheres to the intended architectural patterns.
+
+# Just as server only code needs isolation, client only code must be confined to the client side to leverage browser specific features effectively.
+
+## Lec 60 - Client Component Placement (6:34)
+
+# 
