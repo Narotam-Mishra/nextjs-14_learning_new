@@ -1214,4 +1214,17 @@ d). As a developer, we do not need to choose between static and dynamic renderin
 
 ## Lec 60 - Client Component Placement (6:34)
 
-# 
+# Let us discuss placement of client components within the component tree. This aspect plays a crucial role in optimizing the performance of the Next.js application.
+
+# To compensate for server components not being able to manage state and handle interactivity, we need to create client components. It's recommended to position these client components lower in our component tree.
+
+# Imagine a landing page with a navigation bar at a top and a main section below it.
+
+# Navbar consists of an outer wrapper which is Navbar component itself and within this Navbar there's a `Nav Links` component for various links and a `Nav Search` component that contains a search bar allowing user to search throughout our site. Thus this forms a straightforward component tree with the landing page component at the top, navbar and main component as its children and navbar in turn contains nav links and nav search as its children.
+
+Q. If `use client` is declared in the `Navbar` component shouldn't that be the only component running client side?
+# This is common misconception, when we use `use client` to a component it not only makes that component a client component but also affects every child component in the component tree below it. In our example, `NavLink` and `NavSearch` become client components as well.
+
+# We can think of `use client` as boundary once crossed every subsequent in the tree operates on the client side and this is the reason we can see `NavLink` and `navSearch` executed on client side.
+
+# It is important to understand this concept especially if we have large component tree. Imagine converting a server component to a client component to add some interactivity. This change would turn the entire subtree of children into client components and consequently all their code would be sent to the browser as a result we would lose all the advantages of the server components. Therefore the recommended practice is to place client components as low as possible in the component tree ideally making them leaf components.
