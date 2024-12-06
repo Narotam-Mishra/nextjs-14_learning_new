@@ -1228,3 +1228,7 @@ Q. If `use client` is declared in the `Navbar` component shouldn't that be the o
 # We can think of `use client` as boundary once crossed every subsequent in the tree operates on the client side and this is the reason we can see `NavLink` and `navSearch` executed on client side.
 
 # It is important to understand this concept especially if we have large component tree. Imagine converting a server component to a client component to add some interactivity. This change would turn the entire subtree of children into client components and consequently all their code would be sent to the browser as a result we would lose all the advantages of the server components. Therefore the recommended practice is to place client components as low as possible in the component tree ideally making them leaf components.
+
+## Lec 61 - Interleaving Server and Client Components (9:46)
+
+# Supported and unsupported patterns of interleaving server and client components
