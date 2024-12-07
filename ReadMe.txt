@@ -1232,3 +1232,20 @@ Q. If `use client` is declared in the `Navbar` component shouldn't that be the o
 ## Lec 61 - Interleaving Server and Client Components (9:46)
 
 # Supported and unsupported patterns of interleaving server and client components
+
+# Different patterns wrt client and server component :-
+
+1). Importing a server component into another server component :- inside server component one import and invoke server component two,
+
+2). Importing a client component inside another client component,
+
+3). Importing a client component into server component
+
+4). Importing a server component inside client component - not supported int Next.js
+
+Q. Why we are getting module not found error, `Can't resolve 'fs'`?
+# this happens because any component such as server component one nested inside a client component one is automatically converted into a client component. Since client components are rendered after a server components, we can not import server components into a client component module as it would require a new request back to the server. So, although `server component one` is defined as a server component when it is nested inside `client component one` it is converted into a client component which is executed client side as well and in the client environment there is no file system module available.
+
+# Importing a server component into client component is one pattern that is not supported in the Next.js. However, there is a work around, instead of nesting server components in the client component we can pass it as a prop to the client component, a common pattern is to use the react children prop to create a slot in your client component. This is supported and recommended pattern when interleaving server and client components.
+
+# As far as the client component is concerned it doesn't know that children is a server component all it needs to make sure of is render a placeholder for the children prop to be slotted in which is in this case is a server component. We are not limited to the children prop and we can use any prop on the client component.
