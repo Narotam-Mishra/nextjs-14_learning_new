@@ -1249,3 +1249,19 @@ Q. Why we are getting module not found error, `Can't resolve 'fs'`?
 # Importing a server component into client component is one pattern that is not supported in the Next.js. However, there is a work around, instead of nesting server components in the client component we can pass it as a prop to the client component, a common pattern is to use the react children prop to create a slot in your client component. This is supported and recommended pattern when interleaving server and client components.
 
 # As far as the client component is concerned it doesn't know that children is a server component all it needs to make sure of is render a placeholder for the children prop to be slotted in which is in this case is a server component. We are not limited to the children prop and we can use any prop on the client component.
+
+## Section 3 - Data Fetching in Next.js
+
+## Lec 62 - Data Fetching (2:11)
+
+# Data Fetching in App Router
+
+# Up until now our routes and components have featured hardcoded content however in real world enterprise applications data typically comes external sources.
+
+# Next.js's App Router uses the React Server Component (RSC) architecture, which allows us to fetch data using either server components or client components. It's advantageous to fetch data using server components, as they have direct access to server-side resources such as databases or file systems. This not only taps into the server's computational power and proximity to data sources for efficient data fetching and rendering but also minimizes the need for client-side processing.
+
+# In this section, we will explore data fetching techniques using both server and client components in Next.js
+
+# Server components support various configurations for caching, revalidating, and optimizing data fetching.
+
+# On the client side, data fetching is typically managed through third-party libraries such as `TanStack Query` which offers its own robust APIs. 
