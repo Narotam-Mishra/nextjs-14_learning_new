@@ -1265,3 +1265,11 @@ Q. Why we are getting module not found error, `Can't resolve 'fs'`?
 # Server components support various configurations for caching, revalidating, and optimizing data fetching.
 
 # On the client side, data fetching is typically managed through third-party libraries such as `TanStack Query` which offers its own robust APIs. 
+
+## Lec 63 - Fetching Data with Server Components (4:40)
+
+# The RSC architecture in the app router introduces support for `async` and `await` keywords in Server Components. This allows us to use the familiar JavaScript `await` syntax by defining our component as an asynchronous function. This is the basis for data fetching in server components.
+
+# mock API from JSON Placeholder - https://jsonplaceholder.typicode.com/
+
+# Fetching data will is as straightforward as using async-await keyword with the fetch API, there is no need for useState and useEffect hook nor dealing with all states that come along with it 
