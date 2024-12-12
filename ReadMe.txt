@@ -1272,4 +1272,16 @@ Q. Why we are getting module not found error, `Can't resolve 'fs'`?
 
 # mock API from JSON Placeholder - https://jsonplaceholder.typicode.com/
 
-# Fetching data will is as straightforward as using async-await keyword with the fetch API, there is no need for useState and useEffect hook nor dealing with all states that come along with it 
+# Fetching data is as straightforward as using async-await keyword with the fetch API, there is no need for `useState` and `useEffect` hook nor dealing with all states that come along with it.
+
+## Lec 64 - Loading and Error States (3:19)
+
+# Traditionally in React, we might manage these states by creating separate variables and conditionally rendering UI based on their values.
+
+# To implement a loading state, we can define and export a React component in `loading.tsx` file.
+
+# For handling errors, we can define and export a React component in `error.tsx`.
+
+# since `date fetching` in typically fast, we will intentionally delay the component rendering.
+
+# In order to manage data fetching states we have to add a `loading.tsx` file for loading in .tsx file with a react component for the loading state and an `error.tsx` file with client component to handle error states.
