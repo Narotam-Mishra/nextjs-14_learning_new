@@ -1302,3 +1302,24 @@ Q. Why we are getting module not found error, `Can't resolve 'fs'`?
 # Nextjs extends the native fetch API and automatically caches the returned values of fetch. This caching improves performance and reduces cost. specifically the initial data fetched from the JSON server is stored in what is called a `data cache` on the server and reused for every subsequent request, thus this eliminates the need to repeatedly query JSON server. The fact that there is only one request received log statement confirms this default caching behaviour of Next.js.
 
 # By default, Next.js automatically caches the returned values of fetch in the `Data Cache` on the server.
+
+## Lec 67 - Data Cache (4:33)
+
+# Next.js by default, automatically caches the returned values of fetch operates in the `Data Cache`.
+
+Q. What is data cache ?
+# It is a server-side cache that persists the result of data fetches across incoming server requests and deployments.
+
+Q. Why data cache is required?
+# The data cache improves app performance and reduces costs by eliminating the need to re-fetch data from our data source with every request.
+
+Q. How does data cache work?
+# The first time a fetch request is made during rendering Nextjs checks the data cache for a cached response, if a cached response is found it is returned immediately, if a cached response is not found the result is made to the data source i.e JSON Server and the result is stored in the data cache. For subsequent `fetch` requests the same URL and options the cached value is returned by passing the need to contact data source.
+
+# The result of fetch request is cached in the data cached. In order to visulaize the `data cache` we will delete the `.next` folder in root directory.
+
+# The result of `fetch` is cached in the data cache and we can check the details in '.next' folder where we can see the 'cached' folder.
+
+# After upading the value in `db.json` when we loads the page the page will appear will same old value not updated value, if we check the json-server terminal though there is no additional request received log statement, this is because the cached value from the `data cache` was used.
+
+# Note - It is crucial to note that the `data cache` is a server site persistent cache and not the same as browser cache so if we visit the same route from different browser, then we will still see the cache response (old value not updated one) from the initial fetch request not the updated value.
