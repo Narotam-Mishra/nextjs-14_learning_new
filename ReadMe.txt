@@ -1282,6 +1282,16 @@ Q. Why we are getting module not found error, `Can't resolve 'fs'`?
 
 # For handling errors, we can define and export a React component in `error.tsx`.
 
-# since `date fetching` in typically fast, we will intentionally delay the component rendering.
+# since `date fetching` is typically fast, we will intentionally delay the component rendering.
 
 # In order to manage data fetching states we have to add a `loading.tsx` file for loading in .tsx file with a react component for the loading state and an `error.tsx` file with client component to handle error states.
+
+## Lec 65 - JSON Server Setup (3:25)
+
+# JSON Server Setup steps:
+
+1). Install JSON Server package from npm using `npm i json-server@0.17.4` command,
+2). create `db.json` file in root directory of the project, where this act as a data source (database),
+3). at root directory of the project create `server.js` file,
+4). Run json-server using `node server` command,
+
