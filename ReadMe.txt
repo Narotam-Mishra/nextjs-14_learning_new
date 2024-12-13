@@ -1295,3 +1295,10 @@ Q. Why we are getting module not found error, `Can't resolve 'fs'`?
 3). at root directory of the project create `server.js` file,
 4). Run json-server using `node server` command,
 
+## Lec 66 - Caching Data (4:42)
+
+# Let us fetch and display the list of products (from json-server) on the Next.js page component.
+
+# Nextjs extends the native fetch API and automatically caches the returned values of fetch. This caching improves performance and reduces cost. specifically the initial data fetched from the JSON server is stored in what is called a `data cache` on the server and reused for every subsequent request, thus this eliminates the need to repeatedly query JSON server. The fact that there is only one request received log statement confirms this default caching behaviour of Next.js.
+
+# By default, Next.js automatically caches the returned values of fetch in the `Data Cache` on the server.
