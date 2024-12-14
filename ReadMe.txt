@@ -1314,12 +1314,41 @@ Q. Why data cache is required?
 # The data cache improves app performance and reduces costs by eliminating the need to re-fetch data from our data source with every request.
 
 Q. How does data cache work?
-# The first time a fetch request is made during rendering Nextjs checks the data cache for a cached response, if a cached response is found it is returned immediately, if a cached response is not found the result is made to the data source i.e JSON Server and the result is stored in the data cache. For subsequent `fetch` requests the same URL and options the cached value is returned by passing the need to contact data source.
+# The first time a fetch request is made during rendering Nextjs checks the data cache for a cached response, if a cached response is found it is returned immediately, if a cached response is not found the result is made to the data source i.e JSON Server (in our example) and the result is stored in the data cache. For subsequent `fetch` requests the same URL and options the cached value is returned by passing the need to contact data source.
 
 # The result of fetch request is cached in the data cached. In order to visulaize the `data cache` we will delete the `.next` folder in root directory.
 
 # The result of `fetch` is cached in the data cache and we can check the details in '.next' folder where we can see the 'cached' folder.
 
+# For subsequent `fetch` requests Nextjs uses the cached response instead of quering JSON placeholder (data source)
+
 # After upading the value in `db.json` when we loads the page the page will appear will same old value not updated value, if we check the json-server terminal though there is no additional request received log statement, this is because the cached value from the `data cache` was used.
 
 # Note - It is crucial to note that the `data cache` is a server site persistent cache and not the same as browser cache so if we visit the same route from different browser, then we will still see the cache response (old value not updated one) from the initial fetch request not the updated value.
+
+# JSON Server has the updated price but not our Nextjs application and this is default behaviour of Nextjs app. 
+
+## Lec 68 - Opting Out of Caching (8:03)
+
+# Although caching is a highly effective method to optimize data fetching, there are scenarios where we might want to opt out of this default behaviour.
+
+# For individual data fetches, we can opt out of caching by setting the `cache` option to `no-store`. This ensures data is fetched directly from the data source every time fetch is called.
+
+# When we set `cache` option to `no-store` and if we reload the page again another log entry will be appeared and data will be fetched newly from the data source eache time `fetch` is called by passing the cache entirely. This is the most straightforward option to opt out of caching in Nextjs.
+
+# Few advanced scenarios related to opt out of caching :-
+
+# Once we specify the `no-store` option for a fetch request, subsequent fetch requests will also not be cached.
+
+# A wise choice to place any requests that we wish to cache before a fetch request set to `no-store` alternatively we could specify route level configuration so at the top we add below line
+
+export const fetchCache = 'default-cache'
+
+# Above code is known as a `route segement configuration`.
+
+# By default, Nextjs will cache `fetch` requests that occur before any dynamic functions ( cookies(), headers(), searchParams) are used and will not cache requests found after dynamic functions.
+
+# Nextjs will not cache any `fetch` request after a dynamic function has been invoked.
+
+# Summary :-
+# The `route segment configuration` fetch cache accepts quite a few values as specified in the Nextjs documentation
