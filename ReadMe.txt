@@ -1372,3 +1372,44 @@ Q. How does data cache work?
 # Request Memorization is a React feature, not specifically a Nextjs feature. Memoization only applies to the `GET` method in fetch requests. It only applies within the React Component tree. It does not extend to fetch requests in Route Handlers as they are not part of the React component tree.
 
 # For cases where fetch is not suitable (e.g., some database clients, CMS clients, or GraphQL clients), we can use the React cache function to memoize functions.
+
+## Lec 70 - Time based Data Revalidation (5:25)
+
+# Caching in Nextjs :-
+
+# By default, Next.js caches all fetch requests in the data cache, which is a persistent HTTP cache on the server. This helps optimize pages such as a blog post where the content rarely changes.
+
+# We also know that we can opt out of caching 
+- by using the `cache`: "no-store" option in a fetch request,
+- by using a dynamic function before making the fetch request,
+- by using a route segment config like `fetch-cache` or dynamic
+
+# A news website is a great example where we want to make sure we're fetching the latest data at all times.
+
+# Above approach seems binary: either caching or no caching
+
+# In real-world applications, there are scenarios where middle ground is required,
+
+# For example, an event listings page might have event details such as schedule or venue information that change occasionally.
+
+# In this case, it is acceptable to fetch updated data once every hour as freshness is not critical. For such scenario, Nextjs allows us to revalidate the cache.
+
+# Revalidation :- Revalidation is the process of purging (get rid of old data) the `Data Cache` and re-fetching the latest data.
+
+# Revalidation stra in Nextjs :-
+
+# Time-based revalidation :-
+
+# Nextjs automatically revalidates data after a certain amount of time has passed.
+
+# Since we don't have event data in JSON file hence we will use product's data instead. Delete `.next` folder and make sure there are no cache related options in the `/products` fetch request.
+
+# Let us revalidate our cache at 10-seconds interval :- To revalidate data at a timed interval we can use `next.revalidate` option of fetch to set the cache lifetime of a resource in seconds.
+
+# More points about Revalidation :-
+
+# We can set the revalidate route segment configuration to establish the default revalidation time for a layout or page : `export const revalidate` (this option will not override the revalidate value set by individual fetch requests)
+
+# Regarding the revalidation frequency, the lowest revalidate time across each layout and page of a single route will determine the revalidation frequency of the entire route. This ensures that the child pages are revalidated as frequently as their parent layouts.
+
+# That's how we make use of cache for optimizing data fetches and improving performance but at the same time make sure to serve latest data to the user.
