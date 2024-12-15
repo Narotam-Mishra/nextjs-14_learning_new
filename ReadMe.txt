@@ -1413,3 +1413,15 @@ Q. How does data cache work?
 # Regarding the revalidation frequency, the lowest revalidate time across each layout and page of a single route will determine the revalidation frequency of the entire route. This ensures that the child pages are revalidated as frequently as their parent layouts.
 
 # That's how we make use of cache for optimizing data fetches and improving performance but at the same time make sure to serve latest data to the user.
+
+## Lec 71 - Client-side Data Fetching (2:16)
+
+# For the most part `data fetching` in server components is what we should be doing in the Nextjs.
+
+# However if we want to fetch data in client components that is also possible.
+
+# Let us have a look at a client component that fetches data from our JSON Server. We will create (new route) `products-client` directory where we create `page.tsx` file that will be a part of the Client component that is React component that uses combination of `useState` and `useEffect` to fetch and render data in the UI. We will also maintain loading and error state using additional state variables and conditionally render the UI based on their values.
+
+# With Client-side Data Fetching, what we don't get out of the box is `Request Memoization`, `Caching` and `Revalidation` features and for such features we need to rely on library like `Tanstack Query`.
+
+# Beyound external APIs we can also called a `route handler` from a client component. Route Handlers run on the server and return data to the client. This is useful for keeping sensitive information such as API token etc. So fetching data in client side of Nextjs application is really straightforward
