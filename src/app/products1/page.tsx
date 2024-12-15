@@ -14,11 +14,12 @@ export default async function ProductsPage(){
     const response = await fetch("http://localhost:3001/products")
     const products = await response.json();
 
-    const cookieStore = cookies();
-    cookieStore.get("theme");
+    // const cookieStore = cookies();
+    // cookieStore.get("theme");
 
-    const dRes = await fetch("http://localhost:3001/products/1")
-    const dResJson = await dRes.json();
+    // const dRes = await fetch("http://localhost:3001/products/1")
+    // const dResJson = await dRes.json();
+
     return(
         <ul className="space-y-4 p-4">
             { products.map((product: Product) => (
@@ -26,7 +27,7 @@ export default async function ProductsPage(){
                     <h2 className="text-xl font-semibold">{product.title}</h2>
                     <p>{product.description}</p>
                     <p className="text-lg font-medium">${product.price}</p>
-                    <p>{dResJson.price}</p>
+                    {/* <p>{dResJson.price}</p> */}
                 </li>
             ))}
         </ul>

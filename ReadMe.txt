@@ -1342,7 +1342,7 @@ Q. How does data cache work?
 
 # A wise choice to place any requests that we wish to cache before a fetch request set to `no-store` alternatively we could specify route level configuration so at the top we add below line
 
-export const fetchCache = 'default-cache'
+`export const fetchCache = 'default-cache'`
 
 # Above code is known as a `route segement configuration`.
 
@@ -1351,4 +1351,24 @@ export const fetchCache = 'default-cache'
 # Nextjs will not cache any `fetch` request after a dynamic function has been invoked.
 
 # Summary :-
-# The `route segment configuration` fetch cache accepts quite a few values as specified in the Nextjs documentation
+# The route segment configuration `fetchCache` accepts quite a few values as specified in the Nextjs documentation.
+
+## Lec 69 - Request Memoization (5:48)
+
+# Request Memoization :- Another optimization strategy provided by default i.e, `request memorization`.
+
+# Request Memoization is a technique that deduplicates requests for the same data within a single render pass. This approach allows for re-use of data in a React Component tree, prevents redundant network calls and enhances performance. For the initial request, data is fetched from an external source and the result is stored in memory.
+
+# Subsequent requests for the same data within the same render pass retrieve the result from memory, bypassing the need to make the request again.
+
+# This optimization not only enhances performance but also simplifies data fetching within a component tree. When the same data is needed across different components in a route (e.g, Layout, Page, and multiple components), it eliminates the need to fetch data at the top of the tree and pass props between components. Instead, data can be fetched directly within the components that require it, without concerns about the performance implications of multiple network requests for the same data.
+
+# In our example, once we make API request in `layout.tsx` file and reload the /products route, we will notice instead of two we only see one log messages in the terminal thus Request Memoization optimizes performance by not making an additional request and reusing the same result from a request higher up in the component tree.
+
+# When navigating to /products, the layout component first checks in-memory cache and then the data cache for prior fetch requests with the same URL and options. If no cached result is found, it fetches data from the server, storing the result in both caches. When the page component initiates a fetch, it uses the in-memory result, bypassing further cache or server requests, thus enhancing efficiency and reducing redundant operations.
+
+# Request Memoization contd.
+
+# Request Memorization is a React feature, not specifically a Nextjs feature. Memoization only applies to the `GET` method in fetch requests. It only applies within the React Component tree. It does not extend to fetch requests in Route Handlers as they are not part of the React component tree.
+
+# For cases where fetch is not suitable (e.g., some database clients, CMS clients, or GraphQL clients), we can use the React cache function to memoize functions.
